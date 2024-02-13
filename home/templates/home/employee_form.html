@@ -58,7 +58,7 @@
     <!-- Your existing form code goes here -->
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_div }}
         <input type="submit" value="Save" class="btn btn-primary btn-block mt-3">
     </form>
 </div>

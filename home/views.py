@@ -35,7 +35,8 @@ def AddAttendance(request):
         employee = request.POST.getlist('Employee')
         date =   request.POST.get('Date')
         for e in employee:
-            attendance = Attendance(Employee=e,Date=date)
+            em = Employee.objects.get(Name = e)
+            attendance = Attendance(Employee=em,Date=date)
             attendance.save()
         return HttpResponse("hhjhj")
 

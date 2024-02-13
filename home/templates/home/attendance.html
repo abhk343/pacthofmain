@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST">
+    <form action="{% url 'att' %}" method="POST">
+        {% csrf_token %}
     <input type="date" name="Date">
     {%for e in emp%}
         <input type="checkbox" value="{{e.Name}}" name="Employee">
