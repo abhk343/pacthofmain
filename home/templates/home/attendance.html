@@ -3,17 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Attendance Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        input[type="date"],
+        input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <form action="{% url 'att' %}" method="POST">
+    <form id="attendance-form" action="{% url 'att' %}" method="POST">
         {% csrf_token %}
-    <input type="date" name="Date">
-    {%for e in emp%}
-        <input type="checkbox" value="{{e.Name}}" name="Employee">
-        <label for="Employee">{{e.Name}}</label>
-    {%endfor%}
-    <input type="submit" value="submit">
-</form>
+        <h2>Attendance Form</h2>
+        <label for="Date">Date:</label>
+        <input type="date" name="Date" required>
+        <br>
+        <h3>Select Employees:</h3>
+        {% for e in emp %}
+            <input type="checkbox" value="{{ e.Name }}" name="Employee">
+            <label for="Employee">{{ e.Name }}</label><br>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Submit" onclick="confirmAttendance()">
+    </form>
+
+    <script>
+        function confirmAttendance() {
+            var selectedEmployees = document.querySelectorAll('input[name="Employee"]:checked');
+            var selectedEmployeeNames = [];
+            selectedEmployees.forEach(function(employee) {
+                selectedEmployeeNames.push(employee.value);
+            });
+
+            var confirmed = confirm("Are you sure you want to submit attendance for the following employees:\n" + selectedEmployeeNames.join("\n"));
+
+            if (!confirmed) {
+                // Prevent form submission if not confirmed
+                event.preventDefault();
+            }
+        }
+    </script>
 </body>
 </html>

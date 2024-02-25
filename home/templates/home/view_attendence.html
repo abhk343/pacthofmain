@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #ddd;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Attendance Details</h1>
+    <table>
+        <tr>
+            <th></th>
+            <th>January</th>
+            <th>February</th>
+            <th>March</th>
+            <th>April</th>
+            <th>May</th>
+            <th>June</th>
+            <th>July</th>
+            <th>August</th>
+            <th>September</th>
+            <th>October</th>
+            <th>November</th>
+            <th>December</th>
+        </tr>
+        {% for abs in absence_data %}
+            <tr>
+                <th>{{ abs.employee }}</th>
+                <td>{{ abs.leave_counts.1 }}</td>
+                <td>{{ abs.leave_counts.2 }}</td>
+                <td>{{ abs.leave_counts.3 }}</td>
+                <td>{{ abs.leave_counts.4 }}</td>
+                <td>{{ abs.leave_counts.5 }}</td>
+                <td>{{ abs.leave_counts.6 }}</td>
+                <td>{{ abs.leave_counts.7 }}</td>
+                <td>{{ abs.leave_counts.8 }}</td>
+                <td>{{ abs.leave_counts.9 }}</td>
+                <td>{{ abs.leave_counts.10 }}</td>
+                <td>{{ abs.leave_counts.11 }}</td>
+                <td>{{ abs.leave_counts.12 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

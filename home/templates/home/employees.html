@@ -8,22 +8,73 @@
 <body>
     <table border="1">
         <tr>
-            <th>Name</th>
             <th>Department</th>
+            <th>Employee_id</th>
+            <th>Punch_Card_NO</th>
+            <th>Name</th>
             <th>Designation</th>
-            <th>Number</th>
+            <th>Location</th>
+            <th>DOB</th>
+            <th>DOJ</th>
+            <th>DOL</th>
+            <th>Parents_Name</th>
+            <th>Martial_Status</th>
+            <th>Permanent_Address</th>
+            <th>Present_Address</th>
+            <th>Blood_Group</th>
+            <th>UAN_Number</th>
+            <th>PF_PW</th>
+            <th>ESI_Number</th>
+            <th>Mobile_No</th>
+            <th>Email</th>
+            <th>Aadhar_No</th>
+            <th>PAN</th>
+            <th>Bank_Acc_NO</th>
+            <th>IFSC_Code</th>
+            <th>Bank_Name</th>
+            <th>Emergency_Contact_No</th>
+            <th>Contact_No</th>
+            <th>Sur_name</th>
+            <th>Qualification</th>
+            <th>Experience</th>
+            <th>Remarks</th>
             <th>Salary</th>
-            <th>location</th>
         </tr>
 
         {% for employee in employee_list %}
             <tr>
-                <td>{{ employee.Name }}</td>
                 <td>{{ employee.Department }}</td>
+                <td>{{ employee.Employee_id }}</td>
+                <td>{{ employee.Punch_Card_NO }}</td>
+                <td>{{ employee.Name }}</td>
                 <td>{{ employee.Designation }}</td>
-                <td>{{ employee.Mobile_No }}</td>
-                <td>{{ employee.Salary }}</td>
                 <td>{{ employee.Location }}</td>
+                <td>{{ employee.DOB }}</td>
+                <td>{{ employee.DOJ }}</td>
+                <td>{{ employee.DOL }}</td>
+                <td>{{ employee.Parents_Name }}</td>
+                <td>{{ employee.Martial_Status }}</td>
+                <td>{{ employee.Permanent_Address }}</td>
+                <td>{{ employee.Present_Address }}</td>
+                <td>{{ employee.Blood_Group }}</td>
+                <td>{{ employee.UAN_Number }}</td>
+                <td>{{ employee.PF_PW }}</td>
+                <td>{{ employee.ESI_Number }}</td>
+                <td>{{ employee.Mobile_No }}</td>
+                <td>{{ employee.Email }}</td>
+                <td>{{ employee.Aadhar_No }}</td>
+                <td>{{ employee.PAN }}</td>
+                <td>{{ employee.Bank_Acc_NO }}</td>
+                <td>{{ employee.IFSC_Code }}</td>
+                <td>{{ employee.Bank_Name }}</td>
+                <td>{{ employee.Emergency_Contact_No }}</td>
+                <td>{{ employee.Contact_No }}</td>
+                <td>{{ employee.Sur_name }}</td>
+                <td>{{ employee.Qualification }}</td>
+                <td>{{ employee.Experience }}</td>
+                <td>{{ employee.Remarks }}</td>
+                <td>{{ employee.Salary }}</td>
+
             </tr>
         {% endfor %}
     </table>

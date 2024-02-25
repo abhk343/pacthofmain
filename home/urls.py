@@ -5,5 +5,7 @@ urlpatterns = [
     path('employee/',views.Employees,name='employee'),
    # path('course/<int:course_id>/',views.course_details),
     path('employee_form/',views.EmployeeCreateView.as_view(),name='employee_form'),
-    path('att',views.AddAttendance,name='att')
+    path('att',views.AddAttendance,name='att'),
+    path('search',views.search_absent_employees,name='search'),
+
 ]
