@@ -3,80 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Employee List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Additional CSS styles can be added here */
+        .form-control {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <table border="1">
-        <tr>
-            <th>Department</th>
-            <th>Employee_id</th>
-            <th>Punch_Card_NO</th>
-            <th>Name</th>
-            <th>Designation</th>
-            <th>Location</th>
-            <th>DOB</th>
-            <th>DOJ</th>
-            <th>DOL</th>
-            <th>Parents_Name</th>
-            <th>Martial_Status</th>
-            <th>Permanent_Address</th>
-            <th>Present_Address</th>
-            <th>Blood_Group</th>
-            <th>UAN_Number</th>
-            <th>PF_PW</th>
-            <th>ESI_Number</th>
-            <th>Mobile_No</th>
-            <th>Email</th>
-            <th>Aadhar_No</th>
-            <th>PAN</th>
-            <th>Bank_Acc_NO</th>
-            <th>IFSC_Code</th>
-            <th>Bank_Name</th>
-            <th>Emergency_Contact_No</th>
-            <th>Contact_No</th>
-            <th>Sur_name</th>
-            <th>Qualification</th>
-            <th>Experience</th>
-            <th>Remarks</th>
-            <th>Salary</th>
-        </tr>
+    <div class="container mt-4">
+        <h2>Employee List</h2>
+        <!-- Filter inputs -->
+            
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Department</th>
+                        <th>Employee ID</th>
+                        <th>Punch Card No</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Location</th>
+                        <th>Date of Birth</th>
+                        <th>Date of Joining</th>
+                        <th>Date of Leaving</th>
+                        <th>Parents' Name</th>
+                        <th>Marital Status</th>
+                        <th>Permanent Address</th>
+                        <th>Present Address</th>
+                        <th>Blood Group</th>
+                        <th>UAN Number</th>
+                        <th>PF PW</th>
+                        <th>ESI Number</th>
+                        <th>Mobile Number</th>
+                        <th>Email</th>
+                        <th>Aadhar Number</th>
+                        <th>PAN</th>
+                        <th>Bank Account Number</th>
+                        <th>IFSC Code</th>
+                        <th>Bank Name</th>
+                        <th>Emergency Contact Number</th>
+                        <th>Contact Number</th>
+                        <th>Surname</th>
+                        <th>Qualification</th>
+                        <th>Experience</th>
+                        <th>Remarks</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTableBody">
+                    {% for employee in employee_list %}
+                    <tr>
+                        <td>{{ employee.Department }}</td>
+                        <td>{{ employee.Employee_id }}</td>
+                        <td>{{ employee.Punch_Card_NO }}</td>
+                        <td>{{ employee.Name }}</td>
+                        <td>{{ employee.Designation }}</td>
+                        <td>{{ employee.Location }}</td>
+                        <td>{{ employee.DOB }}</td>
+                        <td>{{ employee.DOJ }}</td>
+                        <td>{{ employee.DOL }}</td>
+                        <td>{{ employee.Parents_Name }}</td>
+                        <td>{{ employee.Martial_Status }}</td>
+                        <td>{{ employee.Permanent_Address }}</td>
+                        <td>{{ employee.Present_Address }}</td>
+                        <td>{{ employee.Blood_Group }}</td>
+                        <td>{{ employee.UAN_Number }}</td>
+                        <td>{{ employee.PF_PW }}</td>
+                        <td>{{ employee.ESI_Number }}</td>
+                        <td>{{ employee.Mobile_No }}</td>
+                        <td>{{ employee.Email }}</td>
+                        <td>{{ employee.Aadhar_No }}</td>
+                        <td>{{ employee.PAN }}</td>
+                        <td>{{ employee.Bank_Acc_NO }}</td>
+                        <td>{{ employee.IFSC_Code }}</td>
+                        <td>{{ employee.Bank_Name }}</td>
+                        <td>{{ employee.Emergency_Contact_No }}</td>
+                        <td>{{ employee.Contact_No }}</td>
+                        <td>{{ employee.Sur_name }}</td>
+                        <td>{{ employee.Qualification }}</td>
+                        <td>{{ employee.Experience }}</td>
+                        <td>{{ employee.Remarks }}</td>
+                        <td>{{ employee.Salary }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Bootstrap JS --><!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-        {% for employee in employee_list %}
-            <tr>
-                <td>{{ employee.Department }}</td>
-                <td>{{ employee.Employee_id }}</td>
-                <td>{{ employee.Punch_Card_NO }}</td>
-                <td>{{ employee.Name }}</td>
-                <td>{{ employee.Designation }}</td>
-                <td>{{ employee.Location }}</td>
-                <td>{{ employee.DOB }}</td>
-                <td>{{ employee.DOJ }}</td>
-                <td>{{ employee.DOL }}</td>
-                <td>{{ employee.Parents_Name }}</td>
-                <td>{{ employee.Martial_Status }}</td>
-                <td>{{ employee.Permanent_Address }}</td>
-                <td>{{ employee.Present_Address }}</td>
-                <td>{{ employee.Blood_Group }}</td>
-                <td>{{ employee.UAN_Number }}</td>
-                <td>{{ employee.PF_PW }}</td>
-                <td>{{ employee.ESI_Number }}</td>
-                <td>{{ employee.Mobile_No }}</td>
-                <td>{{ employee.Email }}</td>
-                <td>{{ employee.Aadhar_No }}</td>
-                <td>{{ employee.PAN }}</td>
-                <td>{{ employee.Bank_Acc_NO }}</td>
-                <td>{{ employee.IFSC_Code }}</td>
-                <td>{{ employee.Bank_Name }}</td>
-                <td>{{ employee.Emergency_Contact_No }}</td>
-                <td>{{ employee.Contact_No }}</td>
-                <td>{{ employee.Sur_name }}</td>
-                <td>{{ employee.Qualification }}</td>
-                <td>{{ employee.Experience }}</td>
-                <td>{{ employee.Remarks }}</td>
-                <td>{{ employee.Salary }}</td>
-
-            </tr>
-        {% endfor %}
-    </table>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
 </body>
 </html>

@@ -25,28 +25,32 @@ def Employees(request):
     }
     return render(request,'home/employees.html',context)
 
-
-class EmployeeCreateView(CreateView):
-    model = Employee
+def EmployeeCreateView(request):
+    if request.method == 'POST':
+        form = employeeform(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('employee')
+    else:
+        form = employeeform()
     
-    fields = "__all__"
+    return render(request ,'home/employee_form.html',{'forms':form})
 
-    def get_success_url(self):
-       return reverse('employee_form')
 
 def AddAttendance(request):
     emp = {
-        'emp':Employee.objects.all()
+        'emp': Employee.objects.all()
     }
     if request.method == 'POST':
-        employee = request.POST.getlist('Employee')
-        date =   request.POST.get('Date')
-        for e in employee:
-            em = Employee.objects.get(Name = e)
-            attendance = Attendance(Employee=em,Date=date)
-            attendance.save()
-        return HttpResponse('form submitted sucesfully')
-    return render(request,'home/attendance.html',emp)
+        employees = request.POST.getlist('Employee')
+        date = request.POST.get('Date')
+        for employee_name in employees:
+            employees_with_name = Employee.objects.filter(Name=employee_name)
+            for em in employees_with_name:
+                attendance = Attendance(Employee=em, Date=date)
+                attendance.save()
+        return HttpResponse('Form submitted successfully')
+    return render(request, 'home/attendance.html', emp)
 
 
 
@@ -65,7 +69,7 @@ def search_absent_employees(request):
                     absent_employee_data[employee_name] = [absent_date]
                 else:
                     absent_employee_data[employee_name].append(absent_date)
-            return render(request, 'home/absent_employee.html', {
+            return render(request, 'home/view_attendance.html', {
                 'month': month,
                 'year': year,
                 'absent_employee_data': absent_employee_data,
